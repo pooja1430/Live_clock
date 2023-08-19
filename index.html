@@ -1,0 +1,232 @@
+
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Microbe&display=swap" rel="stylesheet">
+    <style>
+       * {
+         padding:0px;
+         margin:0px;
+        }
+        body{
+            background-size:100% 800px;
+            background-repeat: no-repeat;
+        }
+        #time
+        {
+            font-family: 'Rubik Distressed', cursive; 
+            position:absolute;
+            color:hotpink;
+            font-size: 40px;
+            text-align: left;
+            padding-top: 50px;
+            padding-left:5px;
+            text-shadow: 2px 2px 5px black;
+            background-color: wheat;
+            left:0px;
+            top:25%;
+            width:500px;
+            height:200px;
+            background-color: rgb(91,91,91,0.619);
+            border-radius: 0px 100px 500px 0px;
+            box-shadow: 2px 2px 5px black;
+            transition:border-radius 5s,width 2s,height 5s,color 2s;
+        }
+            #time:hover
+            {
+                border-radius: 20px 200px 100px 100px;
+                width:540px;
+                height:200px;
+                color:skyblue;
+             }
+            #date
+            {
+                font-family: 'Rubik Microbe', cursive;
+                position:absolute;
+                color:orange;
+                right: 200px;
+                top:25%;
+                width:200px;
+                height:100px;
+                background-color: rgb(91,91,91,0.619);
+                border-radius: 300px 100px 200px 50px;
+                box-shadow: 2px 2px 5px black;
+                transition: border-radius 2s,color 3s;
+            }
+            #date:hover{
+                border-radius: 200px 50px 300px 100px;
+                color:brown;
+            }
+            #day
+            {
+                font-family: 'Rubik Microbe', cursive;
+                color:yellowgreen;
+                position: absolute;
+                right:20px;
+                top:50%;
+                width:300px;
+                height:50px;
+                background-color: rgb(91,91,91,0.619);
+                border-radius: 300px 100px 200px 50px;
+                box-shadow: 2px 2px 5px black;
+                transition: border-radius 5s,width 3s, color 2s;
+            }
+            #day:hover{
+                border-radius: 200px 50px 300px 100px;
+                width:200px;
+                color:burlywood;
+            }
+            .Heading
+            {
+                float: left;
+                font-size: 80px;
+                position: relative;
+                top:20px;
+                left:300px;
+                margin-left: 20px;
+            }
+            #Yellow
+            {
+                color:yellow;
+            }
+            #Red
+            {
+                margin-left: 0px;
+                color:red;
+            }
+            #Purple
+            {
+                color:purple;
+            }
+            #Orange
+            {
+               color:orange;
+            }
+            #Lime
+            {
+                color:lime;
+
+            }
+            #Yellow:hover{
+                top:0px;
+                color:yellow;
+            }
+            #Red:hover
+            {
+                top: 0px;
+                color:rgb(248, 19, 19);
+            }
+            #Purple:hover
+            {
+                top: 0px;
+                color:rgb(255, 24, 255);
+            }
+            #Orange:hover
+            {
+                top: 0px;
+               color:rgb(0, 255, 234);
+            }
+            #Lime:hover
+            {
+                top: 0px;
+                color:rgb(255, 0, 187);
+            }
+            #d
+            {
+                padding-top: 40px;
+            }
+            #dy
+            {
+                padding-top: 15px;
+            }
+    
+    </style>
+    <link rel="Icon" href="">
+    <title>CLOCK</title>
+</head>
+<body  id="bg" onload="CurrentTime()">
+    <center>
+        <h1 class="Heading" id="Red">C</h1>
+        <h1 class="Heading" id="Yellow">L</h1>
+        <h1 class="Heading" id="Purple">O</h1>
+        <h1 class="Heading" id="Orange">C</h1>
+        <h1 class="Heading" id="Lime">K</h1>
+
+        <div id="time">
+        <h1 id="t"></h1>
+        </div>
+        <div id="date">
+        <h1 id="d"></h1>
+        </div>
+        <div id="day">
+        <h1 id="dy"></h1>
+        </div>
+    
+    </center>
+   <script>
+        function CurrentTime()
+        {
+            let date=new Date();
+            var hh=date.getHours();
+            var mm=date.getMinutes();
+            var ss=date.getSeconds();
+            var dd=date.getDate();
+            var mo=date.getMonth()+1;
+            var yy=date.getFullYear();
+            var am_pm="AM"
+            if(hh>12)
+            {
+                hh-=12;
+                am_pm="PM";
+            }
+            if(hh==0)
+            {
+                hh=12;
+                am_pm="AM";
+            }
+            var fullTime=hh+":"+mm+":"+ss+" "+am_pm
+            var fullDate=dd+"-"+mo+"-"+yy
+            let t=setTimeout(function(){CurrentTime()},1000)
+             document.getElementById("t").innerHTML=fullTime;
+            document.getElementById("d").innerHTML=fullDate;
+            var day=date.getDay();
+            var fullday=''
+        switch(day)
+        {
+            case 0:fullday="sunday"
+            document.getElementById("bg").style.backgroundImage="url(nature.jpg)"
+            break;
+            case 1:fullday="monday"
+            document.getElementById("bg").style.backgroundImage="url(nature1.jpg)"
+
+            break;
+            case 2:fullday="tuesday"
+            document.getElementById("bg").style.backgroundImage="url(nature2.jpg)"
+
+            break;
+            case 3:fullday="wednesday"
+            document.getElementById("bg").style.backgroundImage="url(nature3.jpg)"
+
+            break;
+            case 4:fullday="thursday"
+            document.getElementById("bg").style.backgroundImage="url(nature4.jpg)"
+
+            break;
+            case 5:fullday="friday"
+            document.getElementById("bg").style.backgroundImage="url(nature5.webp)"
+
+            break;
+            case 6:fullday="saturday"
+            document.getElementById("bg").style.backgroundImage="url(nature.jpg)"
+
+            break;
+        }
+         document.getElementById("dy").innerHTML=fullday
+        }
+   </script> 
+</body>
+</html>
